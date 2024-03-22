@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% include 'basic/head.html' %}
+</head>
+<body>
+    {% include 'basic/header.html' %}
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    {% include 'basic/footer.html' %}
+</body>
+</html>

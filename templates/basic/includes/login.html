@@ -1,0 +1,19 @@
+{% if user.is_authenticated %}
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        {{ user.username }}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li>
+            <form action="{% url 'freelance:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Выйти</button>
+            </form>
+        </li>
+        <!-- <li><a class="dropdown-item" href="{% url 'freelance:logout' %}">Выход</a></li> -->
+    </ul>
+</div>
+{% else %}
+    <a class="btn btn-primary" href="{% url 'login' %}">Вход</a>
+{% endif %}

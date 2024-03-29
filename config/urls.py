@@ -19,14 +19,16 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from config.ddtb import DEBUG_TOOLBAR_PATH
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
        
     path('', include('freelance.urls')),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    DEBUG_TOOLBAR_PATH, 
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+
 ]
 
 if settings.DEBUG:

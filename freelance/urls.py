@@ -9,7 +9,14 @@ from .views import (
     ExecutorDetailView,
     CustomerListView,
     CustomerDetailView,
+    CustomLogoutView,
+    OrderListView,
+    OrderDetailView,
+    OrderCreateView,
+    OrderEditView,
 )
+
+app_name = "freelance"
 
 urlpatterns = [
     path("", MainPageView.as_view(), name="main_page"),
@@ -21,4 +28,10 @@ urlpatterns = [
     path("services/<int:pk>/", ServiceDetailView.as_view(), name="service-detail"),
     path("orders/", OrderListView.as_view(), name="order-list"),
     path("orders/<int:pk>/", OrderDetailView.as_view(), name="order-detail"),
+    path('logout/', CustomLogoutView.as_view(), name='logout'),
+    path("orders/create/", OrderCreateView.as_view(), name="order-create"),
+    path("orders/edit/<int:pk>", OrderEditView.as_view(), name="order-edit"),
+    path("orders/", OrderListView.as_view(), name="order-list"),
+    path("orders/<int:pk>/", OrderDetailView.as_view(), name="order-detail"),
+    path("orders/success/", OrderListView.as_view() , name="order-success"),
 ]

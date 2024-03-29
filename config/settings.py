@@ -164,3 +164,6 @@ CORS_ALLOW_METHODS = (
     "POST",
     "PUT",
 )
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = '/'

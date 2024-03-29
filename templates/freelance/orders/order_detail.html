@@ -1,0 +1,10 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}Детали Заказа: {{ order.service.name }}{% endblock %}
+
+{% block content %}
+<h1>Заказ: {{ order.service.name }}</h1>
+<p>Описание услуги: {{ order.service.description }}</p>
+<p>Тип заказа: {{ order.get_order_type_display }}</p>
+<!-- Добавьте другие детали заказа по мере необходимости -->
+{% endblock %}

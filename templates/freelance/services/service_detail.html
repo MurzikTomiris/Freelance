@@ -1,0 +1,12 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}Детали услуги: {{ service.name }}{% endblock %}
+
+{% block content %}
+<h1>{{ service.name }}</h1>
+<p>{{ service.description }}</p>
+<div>
+    <p>Тип услуги: {{ service.get_service_type_display }}</p>
+</div>
+<!-- Добавьте другие детали услуги по мере необходимости -->
+{% endblock %}

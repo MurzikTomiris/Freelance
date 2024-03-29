@@ -1,0 +1,16 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}Список Заказов{% endblock %}
+
+{% block content %}
+<h1>Список Заказов</h1>
+<div class="orders">
+    {% for order in orders %}
+    <div class="order">
+        <h2><a href="{% url 'order-detail' order.pk %}">{{ order.service.name }}</a></h2>
+        <p>{{ order.service.description }}</p>
+        <p>Тип заказа: {{ order.get_order_type_display }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

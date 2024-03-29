@@ -1,0 +1,9 @@
+{% extends 'basic/base.html' %}
+{% block content %}
+<h2>Список Исполнителей</h2>
+<ul>
+    {% for executor in executors %}
+    <li><a href="{% url 'executor-detail' executor.pk %}">{{ executor.user.username }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

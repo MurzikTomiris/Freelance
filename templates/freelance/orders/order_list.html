@@ -3,17 +3,51 @@
 {% block title %}Список Заказов{% endblock %}
 
 {% block content %}
-<h1>Список Заказов</h1>
-<div templates/freelance/orders/order_list.htmlclass="orders">
-    {% for order in orders %}
-    <div class="order">
-
-        <div>
-            <a class="btn btn-info" href="{% url 'freelance:order-detail' order.pk %}">{{ order.title }}</a>
-        </div>
-        <p>{{ order.service.description }}</p>
-        <p>Тип заказа: {{ order.get_order_type_display }}</p>
+<div class="row">
+    <div class="col-md-6 offset-md-3 mt-5 mb-2 text-center">
+        <h1>Список Заказов</h1>
     </div>
-    {% endfor %}
+    <div class="orders mb-5 text-left col-md-10 offset-md-1">
+        <table class="table"><tbody>
+        {% if not orders %}
+            <tr>
+                <td colspan="5">Заказов нет</td>
+            </tr>
+        {% else %}
+            <tr>
+                <th>Заказ</th>
+                <th>Описание</th>
+                <th>Стоимость</th>
+                <th>Посмотреть </th>
+                {% if user.is_authenticated and orders.0.customer.user == orders.user %}
+                    <th>Редактировать</th>
+                {% endif %}
+            </tr>
+                {% for order in orders %}
+                    <tr>
+                        <td>
+                            <h5>{{ order.title }}</h5>
+                        </td>
+                        <td>
+                            {{ order.service.description }}
+                            <span class="minfo">Тип заказа: {{ order.get_order_type_display }}</span>
+                        </td>
+                        <td>
+                            <h6>{{ order.price }}</h6>
+
+                        </td>
+                        <td>
+                            <a class="btn btn-info" href="{% url 'freelance:order-detail' order.pk %}">Посмотреть</a>
+                        </td>
+                        {% if user.is_authenticated and order.customer.user == orders.user %}
+                        <td>
+                                <a class="btn btn-info" href="{% url 'freelance:order-edit' order.pk %}">Редактировать</a>
+                            </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+        {% endif %}
+        </tbody></table>
+    </div>
 </div>
 {% endblock %}

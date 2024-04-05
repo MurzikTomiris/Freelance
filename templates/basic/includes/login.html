@@ -2,18 +2,33 @@
 <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
         data-bs-toggle="dropdown" aria-expanded="false">
-        {{ user.username }}
+        Профиль: {{ user.username }}
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li>
+            <a href="{% url 'freelance:order-create' %}">Создать заказ</a>
+        </li>
+        <li>
             <form action="{% url 'freelance:logout' %}" method="post">
                 {% csrf_token %}
-                <button type="submit">Выйти</button>
+                <button type="submit" class="btn btn-primary">Выйти</button>
             </form>
         </li>
-        <!-- <li><a class="dropdown-item" href="{% url 'freelance:logout' %}">Выход</a></li> -->
     </ul>
 </div>
 {% else %}
-    <a class="btn btn-primary" href="{% url 'login' %}">Вход</a>
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        Профиль
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li>
+            <a href="{% url 'register' %}">Регистрация</a>
+        </li>
+        <li>
+            <a class="btn btn-primary" href="{% url 'login' %}">Вход</a>
+        </li>
+    </ul>
+</div>
 {% endif %}

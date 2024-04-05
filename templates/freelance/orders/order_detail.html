@@ -3,8 +3,10 @@
 {% block title %}Детали Заказа: {{ order.service.name }}{% endblock %}
 
 {% block content %}
-<h1>Заказ: {{ order.service.name }}</h1>
-<p>Описание услуги: {{ order.service.description }}</p>
+{{ order.service }}
+<h4>Заказ: {{ order.title }}</h4>
+<p><h5>Описание услуги:</h5> {{ order.description }}</p>
+<p>Стоимость: {{ order.price }}</p>
 <p>Тип заказа: {{ order.get_order_type_display }}</p>
 <!-- Добавьте другие детали заказа по мере необходимости -->
 {% endblock %}

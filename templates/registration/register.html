@@ -1,0 +1,21 @@
+{% extends 'basic/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3 mt-5 mb-2 text-center">
+        <h1>Регистрация</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 offset-md-3 mb-5 text-center">
+        <h2>Новый пользователь</h2>
+            <div class="alert alert-warning">Поля, отмеченные звездочкой, обязательны к заполнению</div>
+                <form method="post" class="text-center">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary text-center">Создать пользователя</button>
+                </form>
+            </div>
+    </div>
+</div>
+{% endblock %}

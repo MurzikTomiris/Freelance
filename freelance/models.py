@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import validate_slug
 
+
 class UserProfile(models.Model):
     user = models.OneToOneField(
         User,
@@ -12,34 +13,75 @@ class UserProfile(models.Model):
     phone = models.CharField(
         max_length=12, blank=True, null=True, verbose_name="Телефон"
     )
+    rating = models.FloatField(default=0.0, verbose_name="Рейтинг")
 
     def __str__(self):
         phone_display = self.phone if self.phone else "Нет телефона"
         return f"{self.user.username} - {phone_display}"
 
-class Executor(UserProfile):
-    # Реализуйте специфические поля/методы для Executor при необходимости
-    pass
 
-class Customer(UserProfile):
-    # Пример специфического поля для Customer
-    preferences = models.TextField(blank=True, verbose_name="Предпочтения")
+class Executor(models.Model):
+    profile = models.OneToOneField(
+        UserProfile,
+        on_delete=models.CASCADE,
+        verbose_name="Профиль",
+    )
+    skills = models.TextField(blank=True, verbose_name="Навыки")
+    avatar = models.ImageField(
+        upload_to="user_avatars", null=True, blank=True, verbose_name="Аватар"
+    )
 
     def __str__(self):
         return (
             super().__str__()
-            + f" - Предпочтения: {self.preferences if self.preferences else 'Не указаны'}"
+            + f" - Навыки: {self.skills if self.skills else 'Не указаны'}"
         )
+
+    class Meta:
+        verbose_name = "Исполнитель"
+        verbose_name_plural = "Исполнители"
+
+
+class Customer(models.Model):
+    profile = models.OneToOneField(
+        UserProfile,
+        on_delete=models.CASCADE,
+        verbose_name="Профиль",
+    )
+    preferences = models.TextField(blank=True, verbose_name="Предпочтения")
+
+    def __str__(self):
+        return (
+            f"{self.profile.user.username} - email: {self.profile.user.email if self.profile.user.email else 'Не указаны'}"
+        )
+
+    class Meta:
+        verbose_name = "Заказчик"
+        verbose_name_plural = "Заказчики"
+
 
 class Service(models.Model):
     class ServicesType(models.TextChoices):
         DESIGN = "design", "Дизайн"
         DEVELOPMENT = "development", "Разработка"
         SUPPORT = "support", "Поддержка"
-    executor = models.ForeignKey(Executor, on_delete=models.CASCADE, verbose_name="Исполнитель")
-    name = models.CharField(max_length=255, blank=True, null=True, verbose_name="Название")
+
+    executor = models.ForeignKey(
+        Executor, on_delete=models.CASCADE, verbose_name="Исполнитель"
+    )
+    name = models.CharField(
+        max_length=255, blank=True, null=True, verbose_name="Название"
+    )
     description = models.TextField(verbose_name="Описание")
-    service_type = models.CharField(max_length=11, choices=ServicesType.choices, default="design", verbose_name="Тип услуги")
+    service_type = models.CharField(
+        max_length=11,
+        choices=ServicesType.choices,
+        default="design",
+        verbose_name="Тип услуги",
+    )
+    price = models.DecimalField(
+        verbose_name="Стоимость", max_digits=10, decimal_places=2, default=0
+    )
 
     def __str__(self):
         return self.name or "Неименованная услуга"
@@ -48,7 +90,11 @@ class Service(models.Model):
         verbose_name = "Услуга"
         verbose_name_plural = "Услуги"
 
+
 class Order(models.Model):
+    # service = models.OneToOneField(
+    #     Service, on_delete=models.CASCADE, primary_key=True, verbose_name="Услуга"
+    # )
     order_type = models.CharField(
         max_length=11,
         choices=Service.ServicesType.choices,
@@ -69,11 +115,26 @@ class Order(models.Model):
     customer = models.ForeignKey(
         Customer,
         on_delete=models.CASCADE,
-        related_name="orders",
+        related_name="customers",
         blank=True,
         null=True,
         verbose_name="Заказчик",
     )
+
+    executor = models.ForeignKey(
+        Executor,
+        on_delete=models.CASCADE,
+        related_name="executors",
+        blank=True,
+        null=True,
+        verbose_name="Исполнитель",
+    )
+
+    order_taken = models.BooleanField(default=False, verbose_name="Заказ сделан")
+    order_taken_at = models.DateTimeField(
+        null=True, blank=True, verbose_name="Время принятия заказа"
+    )
+
 
     def __str__(self):
         return self.title or self.description or "Неизвестный заказ"
@@ -82,7 +143,21 @@ class Order(models.Model):
         verbose_name = "Заказ"
         verbose_name_plural = "Заказы"
 
+
 class Tag(models.Model):
-    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name="tags", blank=True, null=True, verbose_name="Услуга")
-    # Добавьте поля, такие как имя или другие релевантные поля для модели Tag
-    # Рассмотрите возможность добавления метода __str__ для значимого представления
+    name = models.CharField(max_length=100, verbose_name="Имя тега")
+    service = models.ForeignKey(
+        Service,
+        on_delete=models.CASCADE,
+        related_name="tags",
+        blank=True,
+        null=True,
+        verbose_name="Услуга",
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Тег"
+        verbose_name_plural = "Теги"

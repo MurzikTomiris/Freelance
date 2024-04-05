@@ -3,17 +3,27 @@ from .models import Service, Executor, Customer, Order, UserProfile
 
 
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('name', 'executor', 'description', 'service_type')
-# Register your models here.
+    list_display = ("name", "executor", "description", "service_type")
+
 
 class ExecutorAdmin(admin.ModelAdmin):
-    list_display = ("user", "phone")
+    list_display = ("profile", "skills", "avatar")
+
+
+class CustomerAdmin(admin.ModelAdmin):
+    list_display = ("profile", "preferences")
+
 
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ("user", "phone")
 
+
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ("title", "description", "price", "order_type")
+
+
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Executor, ExecutorAdmin)
-admin.site.register(Customer)
-admin.site.register(Order)
+admin.site.register(Customer, CustomerAdmin)
+admin.site.register(Order, OrderAdmin)
 admin.site.register(Service, ServiceAdmin)

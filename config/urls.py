@@ -20,6 +20,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from django.contrib.auth import views as auth_views
+from freelance.views import RegisterView
+
 
 
 urlpatterns = [
@@ -28,6 +30,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('register/', RegisterView.as_view(), name='register'),
 
 ]
 

@@ -1,0 +1,36 @@
+form {
+    max-width: 600px; /* Максимальная ширина формы */
+    margin: auto; /* Центрирование формы на странице */
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px #ccc;
+}
+
+from li {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Распределение элементов списка на две колонки */
+    gap: 10px; /* Промежуток между элементами */
+    text-align: left;
+}
+
+form p {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Распределение элементов формы на две колонки */
+    gap: 10px; /* Промежуток между элементами */
+}
+
+form label {
+    text-align: center; /* Выравнивание текста в элементе формы по правому краю */
+}
+
+form input[type="text"],
+form input[type="password"],
+form select {
+    width: 100%; /* Занимать всю доступную ширину */
+}
+
+form ul.errorlist li {
+    color: white;
+    background-color: red;
+}

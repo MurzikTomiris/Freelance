@@ -1,53 +1,68 @@
 {% extends 'basic/base.html' %}
+{% load custom_tags %}
 
-{% block title %}Список Заказов{% endblock %}
+{% block title %}{{ title_label }}{% endblock %}
 
 {% block content %}
 <div class="row">
     <div class="col-md-6 offset-md-3 mt-5 mb-2 text-center">
-        <h1>Список Заказов</h1>
+        <h1>{{ title_label }}</h1>
     </div>
     <div class="orders mb-5 text-left col-md-10 offset-md-1">
-        <table class="table"><tbody>
-        {% if not orders %}
-            <tr>
-                <td colspan="5">Заказов нет</td>
-            </tr>
-        {% else %}
-            <tr>
-                <th>Заказ</th>
-                <th>Описание</th>
-                <th>Стоимость</th>
-                <th>Посмотреть </th>
-                {% if user.is_authenticated and orders.0.customer.user == orders.user %}
-                    <th>Редактировать</th>
-                {% endif %}
-            </tr>
-                {% for order in orders %}
-                    <tr>
-                        <td>
-                            <h5>{{ order.title }}</h5>
-                        </td>
-                        <td>
-                            {{ order.service.description }}
-                            <span class="minfo">Тип заказа: {{ order.get_order_type_display }}</span>
-                        </td>
-                        <td>
-                            <h6>{{ order.price }}</h6>
+        <table class="table">
+            <tbody>
+            {% if not order_views %}
+                <tr>
+                    <td colspan="5">Заказов нет</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <th>Заказ</th>
+                    <th>Описание</th>
+                    <th>Стоимость</th>
+                    <th>Посмотреть </th>
+                    {% if user.is_authenticated and user|has_group:"Customers" and user == order.customer.profile.user %}
+                        <th>Редактировать</th>
+                    {% endif %}
+                    {% if user.is_authenticated and user|has_group:"Executors" %}
+                        <th>Заявки</th>
+                    {% endif %}
+                </tr>
+                {% for order, show_button in order_views %}
+                <tr>
+                    <td>
+                        <h5>{{ order.title }}</h5>
+                    </td>
+                    <td>
+                        {{ order.service.description }}
+                        <span class="minfo">Тип заказа: {{ order.get_order_type_display }}</span>
+                    </td>
+                    <td>
+                        <h6>{{ order.price }}</h6>
 
-                        </td>
+                    </td>
+                    <td>
+                        <a class="btn btn-info" href="{% url 'freelance:order-detail' order.pk %}">Посмотреть</a>
+                    </td>
+                        {% if user.is_authenticated and user|has_group:"Customers" and user == order.customer.profile.user %}
                         <td>
-                            <a class="btn btn-info" href="{% url 'freelance:order-detail' order.pk %}">Посмотреть</a>
+                            <a class="btn btn-info" href="{% url 'freelance:order-edit' order.pk %}">Редактировать</a>
                         </td>
-                        {% if user.is_authenticated and order.customer.user == orders.user %}
+                        {% endif %}
+                        {% if user.is_authenticated and user|has_group:"Executors" %}
                         <td>
-                                <a class="btn btn-info" href="{% url 'freelance:order-edit' order.pk %}">Редактировать</a>
-                            </td>
+                            {% if show_button %}
+                                <span class="{% if show_button == 'Принято' %}text-success{% elif show_button == 'Отклонено' %}text-danger{% else %}text-warning{% endif %}">{{ show_button }}</span>
+                            {% else %}
+                                <a class="btn btn-info" href="{% url 'freelance:order-request' order.pk %}">Отправить запрос</a>
+                            {% endif %}
+                        </td>
                         {% endif %}
                     </tr>
-                {% endfor %}
-        {% endif %}
-        </tbody></table>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
     </div>
 </div>
 {% endblock %}

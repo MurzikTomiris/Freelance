@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, Executor, Customer, Order, UserProfile
+from .models import Service, Executor, Customer, Order, UserProfile, OrderRequest
 
 
 class ServiceAdmin(admin.ModelAdmin):
@@ -22,8 +22,13 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ("title", "description", "price", "order_type")
 
 
+class OrderRequestAdmin(admin.ModelAdmin):
+    list_display = ("order", "executor", "about_executor", "created_at", "status")
+
+
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Executor, ExecutorAdmin)
 admin.site.register(Customer, CustomerAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(Service, ServiceAdmin)
+admin.site.register(OrderRequest, OrderRequestAdmin)

@@ -1,7 +1,9 @@
 from django import forms
-from .models import Order, UserProfile
+from .models import (Order,
+                     UserProfile,
+                     OrderRequest
+                    )
 from django.contrib.auth.forms import UserCreationForm
-
 
 
 class OrderForm(forms.ModelForm):
@@ -102,3 +104,28 @@ class UserRegistrationForm(UserCreationForm):
         user_profile.user.last_name = self.cleaned_data["last_name"]
         user_profile.user.save()
         return user
+
+
+class OrderRequestForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["order"].widget = forms.HiddenInput()
+        self.fields["executor"].widget = forms.HiddenInput()
+        self.fields["about_executor"].widget = forms.Textarea(
+            attrs={"rows": 5, "class": "form-control"}
+        )
+        self.fields["status"].widget.attrs["disabled"] = True
+        self.fields["status"].required = False
+
+    class Meta:
+        model = OrderRequest
+        fields = "__all__"
+
+
+    def save(self, commit=True):
+        order_request = super().save(commit=False)
+        if commit:
+            order_request.save()
+        return order_request
+

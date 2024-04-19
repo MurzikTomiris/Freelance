@@ -33,8 +33,8 @@ class Executor(models.Model):
 
     def __str__(self):
         return (
-            super().__str__()
-            + f" - Навыки: {self.skills if self.skills else 'Не указаны'}"
+                super().__str__()
+                + f" - Навыки: {self.skills if self.skills else 'Не указаны'}"
         )
 
     class Meta:
@@ -135,7 +135,6 @@ class Order(models.Model):
         null=True, blank=True, verbose_name="Время принятия заказа"
     )
 
-
     def __str__(self):
         return self.title or self.description or "Неизвестный заказ"
 
@@ -161,3 +160,38 @@ class Tag(models.Model):
     class Meta:
         verbose_name = "Тег"
         verbose_name_plural = "Теги"
+
+
+class OrderRequest(models.Model):
+    order = models.ForeignKey(
+        Order, on_delete=models.CASCADE, related_name="requests", verbose_name="Заказ"
+    )
+    executor = models.ForeignKey(
+        Executor,
+        on_delete=models.CASCADE,
+        related_name="order_requests",
+        verbose_name="Исполнитель",
+        default=None,
+        null=True,
+    )
+    about_executor = models.TextField(verbose_name="Об исполнителе", blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    status = models.CharField(
+        max_length=20,
+        choices=[
+            ("pending", "В ожидании"),
+            ("accepted", "Принято"),
+            ("rejected", "Отклонено"),
+        ],
+        default="pending",
+        verbose_name="Статус",
+    )
+
+
+    class Meta:
+        unique_together = ("order", "executor")
+        verbose_name = "Заявка на заказ"
+        verbose_name_plural = "Заявки на заказы"
+
+    def __str__(self):
+        return f"{self.order.title} - {self.executor.profile.user.username}"

@@ -1,19 +1,31 @@
-{% if user.is_authenticated %}
+{% load custom_tags %}
+{% if user.is_authenticated%}
 <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
         data-bs-toggle="dropdown" aria-expanded="false">
         Профиль: {{ user.username }}
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        {% if user|has_group:"Customers" %}
         <li>
             <a href="{% url 'freelance:order-create' %}">Создать заказ</a>
         </li>
+        <li>
+            <a href="{% url 'freelance:customer-access-orders' %}">Посмотреть заказы</a>
+        </li>
+        {% endif %}
+        {% if user|has_group:"Executors" %}
+        <li>
+            <a href="{% url 'freelance:executor-requests' %}">Мои Заказы</a>
+        </li>
+        {% endif %}
         <li>
             <form action="{% url 'freelance:logout' %}" method="post">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-primary">Выйти</button>
             </form>
         </li>
+        <!-- <li><a class="dropdown-item" href="{% url 'freelance:logout' %}">Выход</a></li> -->
     </ul>
 </div>
 {% else %}

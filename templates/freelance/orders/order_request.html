@@ -1,0 +1,16 @@
+{% extends 'basic/base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1>Заказ: {{ order.title }}</h1>
+            <p><h4>Описание услуги:</h4> {{ order.description }}</p>
+            <p>Стоимость: <h4>{{ order.price }}</h4></p>
+            <p>Тип заказа: {{ order.get_order_type_display }}</p>
+            <!-- Добавьте другие детали заказа по мере необходимости -->
+            <form method="post" action="{% url 'freelance:order-request' order.pk %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">Отправить запрос</button>
+            </form>
+    </div>
+{% endblock %}

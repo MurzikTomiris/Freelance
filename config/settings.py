@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "corsheaders",
     # My apps
     "freelance",
+    "ratings",
 ]
 
 MIDDLEWARE = [
@@ -167,3 +168,5 @@ CORS_ALLOW_METHODS = (
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
+# LOGOUT_URL = 'logout'
+# LOGOUT_REDIRECT_URL = 'freelance:login'

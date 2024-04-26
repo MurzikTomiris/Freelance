@@ -1,0 +1,55 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}Заявки{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1>Заявки</h1>
+        </div>
+        <div class="orders mb-5 text-left col-md-10 offset-md-1">
+            <table class="table"><tbody>
+            {% if not requests %}
+                <tr>
+                    <td colspan="5">Заявок нет</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <th>Заказ</th>
+                    <th>Описание</th>
+                    <th>Стоимость</th>
+                    <th>Статус</th>
+                </tr>
+                {% for request in requests %}
+                    <tr>
+                        <td>
+                            <h5>{{ request.order.title }}</h5>
+                        </td>
+                        <td>
+                            {{ request.order.description }}
+                        </td>
+                        <td>
+                            <h6>{{ request.order.price }}</h6>
+                        </td>
+                        <td>
+                            
+                            <h6>
+                                <strong {% if request.get_status_display == 'Принято' %}
+                                            class="text-success"
+                                        {% elif request.get_status_display == 'Отклонено' %}
+                                            class="text-danger"
+                                        {% else %}
+                                            class="text-warning"
+                                        {% endif %}
+                                >
+                                    {{ request.get_status_display }}
+                                </strong>
+                            </h6>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody></table>
+        </div>
+    </div>
+{% endblock %}

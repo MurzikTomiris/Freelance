@@ -18,20 +18,21 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
 from django.contrib.auth import views as auth_views
+from config.ddtb import DEBUG_TOOLBAR_PATH
+
 from freelance.views import RegisterView
-
-
+from ratings.views import RatingListView, RatingUpdateView
 
 urlpatterns = [
-       
     path('', include('freelance.urls')),
+    path('', include('ratings.urls')),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('register/', RegisterView.as_view(), name='register'),
-
+    # path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    DEBUG_TOOLBAR_PATH, 
 ]
 
 if settings.DEBUG:

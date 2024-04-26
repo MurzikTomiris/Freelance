@@ -1,0 +1,17 @@
+{% extends 'basic/base.html' %}
+
+{% block content %}
+    <div class="row-fluid">
+        <div class="col-md-6 offset-md-3">
+            <h1>Информация об исполнителе</h1>
+            <h2 class="text-info">{{ executor.profile.user.username }}</h2>
+            <h2 class="text-success">{{ executor.profile.user.first_name }}</h2>
+            <h2 class="text-success">{{ executor.profile.user.last_name }}</h2>
+            <p class="text-success">{{ executor.profile.phone }}</p>
+            <p class="text-success">{{ executor.profile.user.email }}</p>
+            <p class="text-debug">{{ executor.skills }}</p>
+            <p class="text-warning">{{ executor.profile.rating }}</p>
+            <h2><a href="javascript:history.back()" class="btn btn-primary">Вернуться</a></h2>
+        </div>
+    </div>
+{% endblock %}

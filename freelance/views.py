@@ -1,38 +1,28 @@
 from django.db.models.base import Model as Model
-from django.db import IntegrityError, transaction
+from django.db import transaction
 from django.views.generic import (
     ListView,
     DetailView,
-    TemplateView,
     CreateView,
     UpdateView,
 )
 
-from django.db.models import Exists, OuterRef, Q, Prefetch
+
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.views import LogoutView
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import Exists, OuterRef, Q, Prefetch
 
 from django.urls import reverse_lazy
 
-from freelance.forms import (
-                            OrderForm,
-                            OrderRequestForm
-                             )
-from .models import (Service,
-                     Order,
-                     Executor,
-                     Customer,
-                     UserProfile,
-                     OrderRequest
-                     )
+from freelance.forms import OrderForm
+from .models import Service, Order, OrderRequest, Executor, Customer
 
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.models import Group
-from django.contrib.auth.forms import UserCreationForm
+
 from django.views import View
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, OrderRequestForm
 
 
 class RegisterView(View):
@@ -99,7 +89,37 @@ class MainPageView(ListView):
         context["message"] = "Это главная страница проекта"
         context["title_label"] = "Активные заказы"
         return context
-...
+
+
+class ExecutorListView(ListView):
+    model = Executor
+    template_name = "freelance/executors/executor_list.html"
+    context_object_name = "executors"
+
+
+class ExecutorDetailView(DetailView):
+    model = Executor
+    template_name = (
+        "freelance/executors/executor_detail.html"  # Укажите ваш путь к шаблону
+    )
+    context_object_name = "executor"
+
+
+class CustomerListView(ListView):
+    model = Customer
+    template_name = (
+        "freelance/customers/customer_list.html"  # Укажите ваш путь к шаблону
+    )
+    context_object_name = "customers"
+
+
+class CustomerDetailView(DetailView):
+    model = Customer
+    template_name = (
+        "freelance/customers/customer_detail.html"  # Укажите ваш путь к шаблону
+    )
+    context_object_name = "customer"
+
 
 class CustomerAccessOrdersView(LoginRequiredMixin, ListView):
     model = OrderRequest
@@ -183,38 +203,6 @@ class CustomerAccessOrderView(DetailView):
         return redirect("freelance:customer-access-orders")
 
 
-class ExecutorListView(ListView):
-    model = Executor
-    template_name = (
-        "freelance/executors/executor_list.html"  # Укажите ваш путь к шаблону
-    )
-    context_object_name = "executors"
-
-
-class ExecutorDetailView(DetailView):
-    model = Executor
-    template_name = (
-        "freelance/executors/executor_detail.html"  # Укажите ваш путь к шаблону
-    )
-    context_object_name = "executor"
-
-
-class CustomerListView(ListView):
-    model = Customer
-    template_name = (
-        "freelance/customers/customer_list.html"  # Укажите ваш путь к шаблону
-    )
-    context_object_name = "customers"
-
-
-class CustomerDetailView(DetailView):
-    model = Customer
-    template_name = (
-        "freelance/customers/customer_detail.html"  # Укажите ваш путь к шаблону
-    )
-    context_object_name = "customer"
-
-
 class ServiceListView(ListView):
     model = Service
     template_name = "freelance/services/service_list.html"  # Укажите ваш путь к шаблону
@@ -252,11 +240,89 @@ class OrderListView(UserPassesTestMixin, ListView):
             user_groups = user.groups.all()
 
             if user_groups.filter(name="Customers").exists():
-
                 customer = Customer.objects.get(profile__user=user)
                 return Order.objects.filter(customer=customer)
 
         return Order.objects.all()
+
+    def get_context_data(self, **kwargs):
+        """
+        Извлекает набор запросов на основе статуса аутентификации
+        пользователя и членства в группе.
+
+        Args:
+            self (объект): Экземпляр класса.
+
+        Returns:
+            QuerySet: Отфильтрованный набор запросов на
+            основе статуса аутентификации пользователя и членства в группе.
+        """
+        context = super().get_context_data(**kwargs)
+
+        order_views = self.get_order_views()
+
+        context["order_views"] = order_views
+        context["title_label"] = "Список заказов"
+        return context
+
+    def get_order_views(self):
+        """
+        Извлекает набор запросов на основе статуса аутентификации
+        пользователя и членства в группе.
+
+        Args:
+            self (объект): Экземпляр класса.
+
+        Returns:
+            QuerySet: Отфильтрованный набор запросов на
+            основе статуса аутентификации пользователя и членства в группе.
+        """
+        if not self.request.user.is_authenticated:
+            return [(order, None) for order in Order.objects.all()]
+
+        user_groups = self.request.user.groups.all()
+        if user_groups.filter(name="Executors").exists():
+            executor_requests = OrderRequest.objects.select_related("order").filter(
+                executor__profile__user=self.request.user
+            )
+            return self.get_executor_order_views(executor_requests)
+
+        return [(order, None) for order in Order.objects.all()]
+
+    def get_executor_order_views(self, executor_requests):
+        """
+        Извлекает набор запросов на основе статуса аутентификации
+        пользователя и членства в группе.
+
+        Args:
+            self (объект): Экземпляр класса.
+
+        Returns:
+            QuerySet: Отфильтрованный набор запросов на
+            основе статуса аутентификации пользователя и членства в группе.
+        """
+        order_views = []
+        for order in Order.objects.all():
+            status = self.get_order_status(order, executor_requests)
+            order_views.append((order, status))
+        return order_views
+
+    def get_order_status(self, order, executor_requests):
+        """
+        Извлекает набор запросов на основе статуса аутентификации
+        пользователя и членства в группе.
+
+        Args:
+            self (объект): Экземпляр класса.
+
+        Returns:
+            QuerySet: Отфильтрованный набор запросов на
+            основе статуса аутентификации пользователя и членства в группе.
+        """
+        for request in executor_requests:
+            if request.order.pk == order.pk and request.status:
+                return request.get_status_display()
+        return None
 
     def test_func(self):
         """
@@ -404,120 +470,6 @@ class OrderRequestView(UpdateView):
         )
 
 
-class OrderListView(UserPassesTestMixin, ListView):
-    model = Order
-    template_name = "freelance/orders/order_list.html"  # Укажите ваш путь к шаблону
-    context_object_name = "orders"
-
-    def get_queryset(self):
-        """
-        Извлекает набор запросов на основе статуса аутентификации
-        пользователя и членства в группе.
-
-        Args:
-            self (объект): Экземпляр класса.
-
-        Returns:
-            QuerySet: Отфильтрованный набор запросов на
-            основе статуса аутентификации пользователя и членства в группе.
-        """
-        user = self.request.user
-
-        if self.request.user.is_authenticated:
-            user_groups = user.groups.all()
-
-            if user_groups.filter(name="Customers").exists():
-                customer = Customer.objects.get(profile__user=user)
-                return Order.objects.filter(customer=customer)
-
-        return Order.objects.all()
-
-    def get_context_data(self, **kwargs):
-        """
-        Извлекает набор запросов на основе статуса аутентификации
-        пользователя и членства в группе.
-
-        Args:
-            self (объект): Экземпляр класса.
-
-        Returns:
-            QuerySet: Отфильтрованный набор запросов на
-            основе статуса аутентификации пользователя и членства в группе.
-        """
-        context = super().get_context_data(**kwargs)
-
-        order_views = self.get_order_views()
-
-        context["order_views"] = order_views
-        context["title_label"] = "Список заказов"
-        return context
-
-    def get_order_views(self):
-        """
-        Извлекает набор запросов на основе статуса аутентификации
-        пользователя и членства в группе.
-
-        Args:
-            self (объект): Экземпляр класса.
-
-        Returns:
-            QuerySet: Отфильтрованный набор запросов на
-            основе статуса аутентификации пользователя и членства в группе.
-        """
-        if not self.request.user.is_authenticated:
-            return [(order, None) for order in Order.objects.all()]
-
-        user_groups = self.request.user.groups.all()
-        if user_groups.filter(name="Executors").exists():
-            executor_requests = OrderRequest.objects.select_related("order").filter(executor__profile__user = self.request.user)
-            return self.get_executor_order_views(executor_requests)
-
-        return [(order, None) for order in Order.objects.all()]
-
-    def get_executor_order_views(self, executor_requests):
-        """
-        Извлекает набор запросов на основе статуса аутентификации
-        пользователя и членства в группе.
-
-        Args:
-            self (объект): Экземпляр класса.
-
-        Returns:
-            QuerySet: Отфильтрованный набор запросов на
-            основе статуса аутентификации пользователя и членства в группе.
-        """
-        order_views = []
-        for order in Order.objects.all():
-            status = self.get_order_status(order, executor_requests)
-            order_views.append((order, status))
-        return order_views
-
-    def get_order_status(self, order, executor_requests):
-        """
-        Извлекает набор запросов на основе статуса аутентификации
-        пользователя и членства в группе.
-
-        Args:
-            self (объект): Экземпляр класса.
-
-        Returns:
-            QuerySet: Отфильтрованный набор запросов на
-            основе статуса аутентификации пользователя и членства в группе.
-        """
-        for request in executor_requests:
-            if request.order.pk == order.pk and request.status:
-                return request.get_status_display()
-        return None
-
-    def test_func(self):
-        """
-        Функция требуется для использования миксина UserPassesTestMixin.
-        Данная функция всегда возвращает True,
-        потому-что всю работу берет на себя get_queryset.
-        """
-        return True
-
-
 class ExecutorsRequestsListView(ListView):
     template_name = "freelance/executors/executors-requests.html"
     context_object_name = "requests"
@@ -530,4 +482,3 @@ class ExecutorsRequestsListView(ListView):
         context = super().get_context_data(**kwargs)
         context["title_label"] = "Заявки"
         return context
-

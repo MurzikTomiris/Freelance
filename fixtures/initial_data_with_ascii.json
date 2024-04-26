@@ -1,0 +1,363 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2024-03-19T12:18:50.598Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "2",
+        "object_repr": "Ex1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2024-03-19T12:20:49.930Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "2",
+        "object_repr": "Ex1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2024-03-19T12:21:20.758Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1",
+        "object_repr": "Ex1 - +77778889900 - \u041d\u0430\u0432\u044b\u043a\u0438: \u0423\u043c\u0435\u044e \u0442\u043e \u0438 \u044d\u0442\u043e.",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2024-03-19T12:21:34.881Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1",
+        "object_repr": "Ex1 - +77778889900 - \u041d\u0430\u0432\u044b\u043a\u0438: \u0423\u043c\u0435\u044e \u0442\u043e \u0438 \u044d\u0442\u043e.",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2024-03-27T08:51:05.376Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": "Customer1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2024-03-27T08:51:33.682Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "2",
+        "object_repr": "Customer1 - +77778889900 - \u041f\u0440\u0435\u0434\u043f\u043e\u0447\u0442\u0435\u043d\u0438\u044f: \u0414\u0435\u043b\u0430\u0439 \u0445\u043e\u0440\u043e\u0448\u043e.",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2024-03-27T08:52:31.267Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": "Customer1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2024-03-28T19:41:27.477Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "1",
+        "object_repr": "\u0417\u0430\u0440\u0435\u0444\u0430\u043a\u0442\u043e\u0440\u0438\u0442\u044c \u043a\u043e\u0434 Python",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u043a\\u0430\\u0437\\u0447\\u0438\\u043a\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2024-03-28T19:46:00.199Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": "Customer1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2024-03-28T21:03:41.080Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "3",
+        "object_repr": "\u041d\u0443\u0436\u043d\u043e \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u043f\u043b\u0430\u0442\u0451\u0436\u043d\u0443\u044e \u0441\u0438\u0441\u0442\u0435\u043c\u0443 \u041f\u0440\u043e\u0434\u0430\u043c\u0443\u0441",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2024-03-28T21:18:23.913Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "1",
+        "object_repr": "\u0417\u0430\u0440\u0435\u0444\u0430\u043a\u0442\u043e\u0440\u0438\u0442\u044c \u043a\u043e\u0434 Python",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2024-03-28T22:04:19.056Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "8",
+        "object_repr": "\u041a\u043e\u043f\u0438\u044f \u0441\u0430\u0439\u0442\u0430",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2024-03-28T22:04:19.069Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "7",
+        "object_repr": "\u041a\u043e\u043f\u0438\u044f \u0441\u0430\u0439\u0442\u0430",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2024-03-28T22:04:19.076Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "6",
+        "object_repr": "\u041a\u043e\u043f\u0438\u044f \u0441\u0430\u0439\u0442\u0430",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2024-03-28T22:04:19.082Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "5",
+        "object_repr": "\u041a\u043e\u043f\u0438\u044f \u0441\u0430\u0439\u0442\u0430",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2024-03-28T22:04:19.088Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "4",
+        "object_repr": "\u041a\u043e\u043f\u0438\u044f \u0441\u0430\u0439\u0442\u0430",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$n3eNSCNjBotS7T1NTWqKOK$zPobJHhcahoGq42z7aC7CR5m/quMgtRPfiUaCtSqQcA=",
+        "last_login": "2024-03-28T21:18:08.959Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@localhost.localhost",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-03-12T20:24:31.711Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$312TnYXpOqUO21U8Ckwx1b$ZQMzyFirQkJWVExNF/C0Ihj/jgim0KT2ZV0TeWU2W7k=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Ex1",
+        "first_name": "\u0418\u0432\u0430\u043d",
+        "last_name": "\u0418\u0432\u0430\u043d\u043e\u0432",
+        "email": "iv@iv.iv",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-03-19T12:18:50Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$DqLCvhDJPUc0vzHd6cyHyi$8Q8X+G2y9m7rrzqBXgW8IRJELeKKuOO1EG+VYxS8t3g=",
+        "last_login": "2024-03-28T21:16:54.590Z",
+        "is_superuser": false,
+        "username": "Customer1",
+        "first_name": "\u0417\u0430\u043a\u0430\u0437\u0447\u0438\u043a",
+        "last_name": "\u0423\u043c\u043d\u044b\u0439",
+        "email": "zakaz_1@zakaz.zakaz",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-03-27T08:51:04Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "6pmq6sw99tgnnqug812qg0dbk9lgn54r",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSEF6lxw6b7fQAaYSNXQpI-V8d-1SRe6veec-1KRt7XGbZE5jkVdlFGn3y1xfkjbQblzu006T22dx6R3RR900cNU5Hk93L-Dykv91la6MzmW3BUI0Dly1hmgGJ_YeogDAsFkE1LuQQSm4ODZ-EC9QL0_uL02cg:1rpx8S:yTzKLWsfiyXd_lGsHimySVy9hUD1ITtf4NPY3m-52U4",
+        "expire_date": "2024-04-11T21:18:08.966Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "7otz3hsss0awpoacmjb9xjvc0hs1pqiv",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGln-x6Gkzxms9XqDA8iW4qRC3B1HSgHtzLz3ZgH2LYe90RqWxK5Ms8svi4BPKodIDyj3yrGWbV0iPxJ-2sanmuh1O9u_gwwt9zVpEbWMhGhUMqRmP4poIA0gpHTWwWw9aq9ImlEZ2VvdqSXo6eAA2ecL54s3vQ:1rpx7G:sBM3hI_bd8rVogk7RLLr1tg-Yp_whgZvQ-3TQzcBQ_I",
+        "expire_date": "2024-04-11T21:16:54.597Z"
+    }
+},
+{
+    "model": "freelance.userprofile",
+    "pk": 1,
+    "fields": {
+        "user": 2,
+        "phone": "+77778889900"
+    }
+},
+{
+    "model": "freelance.userprofile",
+    "pk": 2,
+    "fields": {
+        "user": 3,
+        "phone": "+77778889900"
+    }
+},
+{
+    "model": "freelance.executor",
+    "pk": 1,
+    "fields": {
+        "skills": "\u0423\u043c\u0435\u044e \u0442\u043e \u0438 \u044d\u0442\u043e.",
+        "avatar": ""
+    }
+},
+{
+    "model": "freelance.customer",
+    "pk": 2,
+    "fields": {
+        "preferences": "\u0414\u0435\u043b\u0430\u0439 \u0445\u043e\u0440\u043e\u0448\u043e."
+    }
+},
+{
+    "model": "freelance.order",
+    "pk": 1,
+    "fields": {
+        "order_type": "development",
+        "title": "\u0417\u0430\u0440\u0435\u0444\u0430\u043a\u0442\u043e\u0440\u0438\u0442\u044c \u043a\u043e\u0434 Python",
+        "description": "\u0414\u043e\u0431\u0440\u044b\u0439 \u0434\u0435\u043d\u044c!\r\n\u0420\u0430\u0431\u043e\u0442\u0430\u0435\u0442 \u043f\u0430\u0440\u0441\u0435\u0440 \u0447\u0435\u0440\u0435\u0437 \u0442\u043e\u0440, \u043f\u043e \u0430\u043f\u0438 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u0434\u0430\u043d\u043d\u044b\u0435, \u043d\u043e \u0438\u0437-\u0437\u0430 \u0442\u043e\u0433\u043e \u0447\u0442\u043e \u0430\u043f\u0438 \u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442 \u043d\u0430 \u0440\u0430\u0437\u043d\u044b\u0435 \u0434\u0430\u043d\u043d\u044b\u0435 \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044f \u0441\u0434\u0435\u043b\u0430\u0442\u044c \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0443 - \u0442\u0435 \u0441\u0434\u0435\u043b\u0430\u0442\u044c \u0437\u0430\u043f\u0440\u043e\u0441 \u0437\u0430\u043f\u0440\u043e\u0441 \u0447\u0435\u0440\u0435\u0437 \u0432\u0440\u0435\u043c\u044f \u043d\u0430 \u0442\u043e \u0436\u0435 \u0430\u043f\u0438 \u043d\u0430 \u0442\u0435 \u0436\u0435 \u0434\u0430\u043d\u043d\u044b\u0435 \u0434\u043b\u044f \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0438.\r\n2 \u0432 \u0441\u0440\u0438\u043f\u0442\u0435 2\u0433\u043e \u0431\u043e\u0442\u0430 \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044f \u0434\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0444\u043e\u0440\u043c\u0443\u043b\u0443 \u043e\u0431\u0440\u0430\u0442\u043d\u043e\u0439 \u043e\u0446\u0435\u043d\u043a\u0438 \u0434\u0430\u043d\u043d\u044b\u0445, \u043f\u0440\u0438\u043c\u0435\u0440 \u0432 \u044d\u043a\u0441\u0435\u043b\u0435 \u0435\u0441\u0442\u044c.\r\n1\u044f \u0437\u0430\u0434\u0430\u0447\u0430 \u0434\u043e\u043b\u0436\u043d\u0430 \u0431\u044b\u0442\u044c \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e \u0447\u0435\u0440\u0435\u0437 \u0442\u043e\u0440 \u0438 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u0430 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 7 \u0434\u043d\u0435\u0439.\r\n\u043f\u043e\u043d\u0438\u043c\u0430\u043d\u0438\u0435 \u043f\u043e \u0437\u0430\u0434\u0430\u0447\u0430\u043c \u0435\u0441\u0442\u044c,\u0432\u0441\u0435 \u0441\u043c\u043e\u0433\u0443 \u043e\u0431\u044c\u044f\u0441\u043d\u0438\u0442\u044c",
+        "created_at": "2024-03-28T19:14:33.382Z",
+        "updated_at": "2024-03-28T21:18:23.912Z",
+        "price": "7500.00",
+        "customer": 2
+    }
+},
+{
+    "model": "freelance.order",
+    "pk": 2,
+    "fields": {
+        "order_type": "development",
+        "title": "\u041d\u0443\u0436\u043d\u043e \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u043f\u043b\u0430\u0442\u0451\u0436\u043d\u0443\u044e \u0441\u0438\u0441\u0442\u0435\u043c\u0443 \u041f\u0440\u043e\u0434\u0430\u043c\u0443\u0441",
+        "description": "\u041d\u0443\u0436\u043d\u043e \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u043f\u043b\u0430\u0442\u0451\u0436\u043d\u0443\u044e \u0441\u0438\u0441\u0442\u0435\u043c\u0443 \u041f\u0440\u043e\u0434\u0430\u043c\u0443\u0441 \u0434\u043b\u044f \u043f\u043b\u0430\u0442\u0435\u0436\u0435\u0439.\r\n\u041a\u043e\u0434 \u0441\u0430\u043c\u043e\u043f\u0438\u0441\u043d\u044b\u0439.\r\nhttps://neearby.com\r\nBackend \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a, Node.JS + Express \u0441\u0432\u044f\u0437\u043a\u0430 (\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430 API). \u041e\u043f\u044b\u0442 \u0440\u0430\u0431\u043e\u0442\u044b \u0441 mysql \u0442\u0430\u043a\u0436\u0435 \u0438\u043c\u0435\u0435\u0442\u0441\u044f.\r\n\u041d\u0430 \u043d\u043e\u0434\u0435 \u0442\u0430\u043a\u0436\u0435 \u0440\u0430\u0437\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u043b VK + TG \u0431\u043e\u0442\u043e\u0432. \u0422\u0430\u043a\u0436\u0435 \u0430\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u044e \u0441\u0435\u0440\u0432\u0435\u0440\u0430 (\u043f\u043e\u043b\u043d\u043e\u0441\u0442\u044c\u044e \u0441 \u0447\u0438\u0441\u0442\u043e\u0433\u043e \u0437\u0430\u043f\u0443\u0441\u043a\u0430 \u043b\u0438\u043d\u0443\u043a\u0441\u0430 \u0434\u043e \u043f\u043e\u043b\u043d\u043e\u0433\u043e \u043f\u0440\u043e\u0434\u0430\u043a\u0448\u0435\u043d\u0430)",
+        "created_at": "2024-03-28T19:47:22.871Z",
+        "updated_at": "2024-03-28T19:47:22.871Z",
+        "price": "25000.00",
+        "customer": null
+    }
+},
+{
+    "model": "freelance.order",
+    "pk": 9,
+    "fields": {
+        "order_type": "development",
+        "title": "\u041a\u043e\u043f\u0438\u044f \u0441\u0430\u0439\u0442\u0430",
+        "description": "\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435! \u041d\u0443\u0436\u043d\u0430 \u043a\u043e\u043f\u0438\u044f mirtex23.ru\r\n\u042d\u0442\u043e \u043c\u043e\u0439 \u0441\u0430\u0439\u0442, \u044f \u0435\u0433\u043e \u043d\u0430\u043f\u0438\u0441\u0430\u043b \u0432\u0440\u0443\u0447\u043d\u0443\u044e, \u043e\u0447\u0435\u043d\u044c \u0434\u0430\u0432\u043d\u043e, \u0441 \u043f\u043e\u043c\u043e\u0449\u044c\u044e html + php.\r\n\u041d\u0443\u0436\u043d\u0430 \u0431\u043e\u043b\u0435\u0435 \u0441\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430 \u0441 \u0434\u043e\u0440\u0430\u0431\u043e\u0442\u043a\u0430\u043c\u0438 \u043d\u0430 \u0434\u0440\u0443\u0433\u043e\u0439 \u0442\u043e\u0432\u0430\u0440, \u0441 \u043e\u043d\u043b\u0430\u0439\u043d \u043a\u0430\u043b\u044c\u043a\u0443\u043b\u044f\u0442\u043e\u0440\u043e\u043c.\r\n\u0418\u0441\u0445\u043e\u0434\u043d\u0438\u043a\u0438 \u043c\u043e\u0433\u0443 \u0441\u043a\u0438\u043d\u0443\u0442\u044c",
+        "created_at": "2024-03-28T21:49:42.716Z",
+        "updated_at": "2024-03-28T21:49:42.716Z",
+        "price": "6000.00",
+        "customer": 2
+    }
+},
+{
+    "model": "freelance.order",
+    "pk": 10,
+    "fields": {
+        "order_type": "development",
+        "title": "\u041d\u0443\u0436\u043d\u043e \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u043f\u043b\u0430\u0442\u0451\u0436\u043d\u0443\u044e \u0441\u0438\u0441\u0442\u0435\u043c\u0443 \u041f\u0440\u043e\u0434\u0430\u043c\u0443\u0441",
+        "description": "\u041d\u0443\u0436\u043d\u043e \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u043f\u043b\u0430\u0442\u0451\u0436\u043d\u0443\u044e \u0441\u0438\u0441\u0442\u0435\u043c\u0443 \u041f\u0440\u043e\u0434\u0430\u043c\u0443\u0441 \u0434\u043b\u044f \u043f\u043b\u0430\u0442\u0435\u0436\u0435\u0439.\r\n\u041a\u043e\u0434 \u0441\u0430\u043c\u043e\u043f\u0438\u0441\u043d\u044b\u0439.\r\nhttps://neearby.com\r\nBackend \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u0447\u0438\u043a, Node.JS + Express \u0441\u0432\u044f\u0437\u043a\u0430 (\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430 API). \u041e\u043f\u044b\u0442 \u0440\u0430\u0431\u043e\u0442\u044b \u0441 mysql \u0442\u0430\u043a\u0436\u0435 \u0438\u043c\u0435\u0435\u0442\u0441\u044f.\r\n\u041d\u0430 \u043d\u043e\u0434\u0435 \u0442\u0430\u043a\u0436\u0435 \u0440\u0430\u0437\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u043b VK + TG \u0431\u043e\u0442\u043e\u0432. \u0422\u0430\u043a\u0436\u0435 \u0430\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u044e \u0441\u0435\u0440\u0432\u0435\u0440\u0430 (\u043f\u043e\u043b\u043d\u043e\u0441\u0442\u044c\u044e \u0441 \u0447\u0438\u0441\u0442\u043e\u0433\u043e \u0437\u0430\u043f\u0443\u0441\u043a\u0430 \u043b\u0438\u043d\u0443\u043a\u0441\u0430 \u0434\u043e \u043f\u043e\u043b\u043d\u043e\u0433\u043e \u043f\u0440\u043e\u0434\u0430\u043a\u0448\u0435\u043d\u0430)",
+        "created_at": "2024-03-28T21:50:28.258Z",
+        "updated_at": "2024-03-28T21:57:13.130Z",
+        "price": "25000.00",
+        "customer": 2
+    }
+}
+]

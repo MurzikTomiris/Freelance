@@ -1,0 +1,51 @@
+{% extends 'basic/base.html' %}
+{% block content %}
+<h2>Заказ</h2>
+
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="col-md-10 offset-md-1">
+            <h1>Детали заказа: {{ order.title }}</h1>
+            <p>{{ order.description }}</p>
+            <p>Стоимость: {{ order.price }}</p>
+            <p>Статус: {{ order.get_status_display }}</p>
+            {% if accepted_executor %}
+            <h2>Исполнитель заказа:</h2>
+            <h5 class="text-warning">{{ accepted_executor.executor.profile.user.username }}</h5>
+            <a class="btn btn-primary btn-sm" href="{% url 'ratings:rating_update' order.pk %}"> Рейтинг </a>
+            {% else %}
+            <h2>Выберите исполнителя:</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <form class="form form-inline" method="post" action="{% url 'freelance:customer-access-order' order.pk %}">
+                    {% for request in order.requests.all %}
+                    {% csrf_token %}
+                    <div class="grid grid-cols-3">
+                        <div class="row">
+                            <div class="col-md-2 text-center">
+                            <input class="form-check-input" type="radio" name="executor"
+                                value="{{ request.executor.pk }}" />
+                            </div>
+                            <div class="col-md-8 text-left">
+                                <h5 class="text-secondary mb-0 d-inline">{{ request.executor.profile.user.username }}</h5>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <a class="btn btn-primary btn-sm btn-block" href="{% url 'freelance:executor-detail' request.executor.pk %}">
+                                    Профиль
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <input type="hidden" name="order" value="{{ order.pk }}">
+                    <br>
+                    <button class="btn btn-success" type="submit">Выбрать исполнителя</button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

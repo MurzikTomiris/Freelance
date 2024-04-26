@@ -1,12 +1,22 @@
 {% extends 'basic/base.html' %}
+{% load custom_tags %}
 
 {% block title %}Детали Заказа: {{ order.service.name }}{% endblock %}
 
 {% block content %}
-{{ order.service }}
-<h4>Заказ: {{ order.title }}</h4>
-<p><h5>Описание услуги:</h5> {{ order.description }}</p>
-<p>Стоимость: {{ order.price }}</p>
-<p>Тип заказа: {{ order.get_order_type_display }}</p>
-<!-- Добавьте другие детали заказа по мере необходимости -->
+<div class="row-fluid mt-5 mb-5">
+    <div class="col-md-6 offset-md-3">
+        <h4>Заказ: {{ order.title }}</h4>
+        <p><h5>Описание услуги:</h5> {{ order.description }}</p>
+        <p>Стоимость: <h4>{{ order.price }}</h4></p>
+        <p>Тип заказа: {{ order.get_order_type_display }}</p>
+        <!-- Добавьте другие детали заказа по мере необходимости -->
+    </div>
+
+    {% if user.is_authenticated and user|has_group:"Customers"%}
+        <div class="col-md-6 offset-md-3">
+            <a class="btn btn-primary" href="{% url 'freelance:order-edit' order.pk %}">Редактировать</a>
+        </div>
+    {% endif %}
+</div>
 {% endblock %}

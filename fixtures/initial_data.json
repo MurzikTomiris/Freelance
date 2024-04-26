@@ -1,0 +1,544 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2024-03-19T12:18:50.598Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "2",
+        "object_repr": "Ex1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2024-03-19T12:20:49.930Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "2",
+        "object_repr": "Ex1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2024-03-19T12:21:20.758Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1",
+        "object_repr": "Ex1 - +77778889900 - Навыки: Умею то и это.",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2024-03-19T12:21:34.881Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1",
+        "object_repr": "Ex1 - +77778889900 - Навыки: Умею то и это.",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2024-03-27T08:51:05.376Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": "Customer1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2024-03-27T08:51:33.682Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "2",
+        "object_repr": "Customer1 - +77778889900 - Предпочтения: Делай хорошо.",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2024-03-27T08:52:31.267Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": "Customer1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2024-03-28T19:41:27.477Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "1",
+        "object_repr": "Зарефакторить код Python",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0417\\u0430\\u043a\\u0430\\u0437\\u0447\\u0438\\u043a\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2024-03-28T19:46:00.199Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": "Customer1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2024-03-28T21:03:41.080Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "3",
+        "object_repr": "Нужно подключить платёжную систему Продамус",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2024-03-28T21:18:23.913Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "1",
+        "object_repr": "Зарефакторить код Python",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2024-03-28T22:04:19.056Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "8",
+        "object_repr": "Копия сайта",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2024-03-28T22:04:19.069Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "7",
+        "object_repr": "Копия сайта",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2024-03-28T22:04:19.076Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "6",
+        "object_repr": "Копия сайта",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2024-03-28T22:04:19.082Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "5",
+        "object_repr": "Копия сайта",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2024-03-28T22:04:19.088Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "4",
+        "object_repr": "Копия сайта",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2024-03-30T08:41:05.552Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "1",
+        "object_repr": "Заказчики",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2024-03-30T08:41:19.445Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "2",
+        "object_repr": "Исполнители",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2024-03-30T08:44:28.721Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "2",
+        "object_repr": "Ex1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2024-03-30T08:50:33.234Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": "Customer1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2024-03-30T08:50:42.049Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "2",
+        "object_repr": "Ex1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2024-03-30T12:13:17.574Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "1",
+        "object_repr": "Customers",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2024-03-30T12:13:28.409Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "2",
+        "object_repr": "Executors",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2024-03-30T14:22:01.828Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "1",
+        "object_repr": "Customers",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2024-03-30T14:22:04.548Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "2",
+        "object_repr": "Executors",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2024-03-30T14:29:03.058Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "3",
+        "object_repr": "Customer1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2024-03-30T14:29:12.528Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "2",
+        "object_repr": "Ex1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+    }
+},
+{
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+        "name": "Customers",
+        "permissions": [
+            33,
+            34,
+            35,
+            36
+        ]
+    }
+},
+{
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+        "name": "Executors",
+        "permissions": [
+            37,
+            38,
+            39,
+            40
+        ]
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$n3eNSCNjBotS7T1NTWqKOK$zPobJHhcahoGq42z7aC7CR5m/quMgtRPfiUaCtSqQcA=",
+        "last_login": "2024-03-28T21:18:08.959Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@localhost.localhost",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-03-12T20:24:31.711Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$312TnYXpOqUO21U8Ckwx1b$ZQMzyFirQkJWVExNF/C0Ihj/jgim0KT2ZV0TeWU2W7k=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Ex1",
+        "first_name": "Иван",
+        "last_name": "Иванов",
+        "email": "iv@iv.iv",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-03-19T12:18:50Z",
+        "groups": [
+            2
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$DqLCvhDJPUc0vzHd6cyHyi$8Q8X+G2y9m7rrzqBXgW8IRJELeKKuOO1EG+VYxS8t3g=",
+        "last_login": "2024-03-30T14:26:03Z",
+        "is_superuser": false,
+        "username": "Customer1",
+        "first_name": "Заказчик",
+        "last_name": "Умный",
+        "email": "zakaz_1@zakaz.zakaz",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-03-27T08:51:04Z",
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "6pmq6sw99tgnnqug812qg0dbk9lgn54r",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSEF6lxw6b7fQAaYSNXQpI-V8d-1SRe6veec-1KRt7XGbZE5jkVdlFGn3y1xfkjbQblzu006T22dx6R3RR900cNU5Hk93L-Dykv91la6MzmW3BUI0Dly1hmgGJ_YeogDAsFkE1LuQQSm4ODZ-EC9QL0_uL02cg:1rpx8S:yTzKLWsfiyXd_lGsHimySVy9hUD1ITtf4NPY3m-52U4",
+        "expire_date": "2024-04-11T21:18:08.966Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "7otz3hsss0awpoacmjb9xjvc0hs1pqiv",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGln-x6Gkzxms9XqDA8iW4qRC3B1HSgHtzLz3ZgH2LYe90RqWxK5Ms8svi4BPKodIDyj3yrGWbV0iPxJ-2sanmuh1O9u_gwwt9zVpEbWMhGhUMqRmP4poIA0gpHTWwWw9aq9ImlEZ2VvdqSXo6eAA2ecL54s3vQ:1rpx7G:sBM3hI_bd8rVogk7RLLr1tg-Yp_whgZvQ-3TQzcBQ_I",
+        "expire_date": "2024-04-11T21:16:54.597Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "95yhbbl2z5xzvhjb9cpdogb4kskar5vk",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSEF6lxw6b7fQAaYSNXQpI-V8d-1SRe6veec-1KRt7XGbZE5jkVdlFGn3y1xfkjbQblzu006T22dx6R3RR900cNU5Hk93L-Dykv91la6MzmW3BUI0Dly1hmgGJ_YeogDAsFkE1LuQQSm4ODZ-EC9QL0_uL02cg:1rqUKC:3vRrF_G9Bv48xohwzbfKw-70wCOzYOJlm6BME-Qi-aY",
+        "expire_date": "2024-04-13T08:44:28.743Z"
+    }
+},
+{
+    "model": "freelance.userprofile",
+    "pk": 1,
+    "fields": {
+        "user": 2,
+        "phone": "+77778889900"
+    }
+},
+{
+    "model": "freelance.userprofile",
+    "pk": 2,
+    "fields": {
+        "user": 3,
+        "phone": "+77778889900"
+    }
+},
+{
+    "model": "freelance.executor",
+    "pk": 1,
+    "fields": {
+        "skills": "Умею то и это.",
+        "avatar": ""
+    }
+},
+{
+    "model": "freelance.customer",
+    "pk": 2,
+    "fields": {
+        "preferences": "Делай хорошо."
+    }
+},
+{
+    "model": "freelance.order",
+    "pk": 1,
+    "fields": {
+        "order_type": "development",
+        "title": "Зарефакторить код Python",
+        "description": "Добрый день!\r\nРаботает парсер через тор, по апи получает данные, но из-за того что апи работает на разные данные требуется сделать проверку - те сделать запрос запрос через время на то же апи на те же данные для проверки.\r\n2 в срипте 2го бота требуется добавить формулу обратной оценки данных, пример в экселе есть.\r\n1я задача должна быть обязательно через тор и обязательна проверка 7 дней.\r\nпонимание по задачам есть,все смогу обьяснить",
+        "created_at": "2024-03-28T19:14:33.382Z",
+        "updated_at": "2024-03-28T21:18:23.912Z",
+        "price": "7500.00",
+        "customer": 2
+    }
+},
+{
+    "model": "freelance.order",
+    "pk": 2,
+    "fields": {
+        "order_type": "development",
+        "title": "Нужно подключить платёжную систему Продамус",
+        "description": "Нужно подключить платёжную систему Продамус для платежей.\r\nКод самописный.\r\nhttps://neearby.com\r\nBackend разработчик, Node.JS + Express связка (разработка API). Опыт работы с mysql также имеется.\r\nНа ноде также разрабатывал VK + TG ботов. Также администрирую сервера (полностью с чистого запуска линукса до полного продакшена)",
+        "created_at": "2024-03-28T19:47:22.871Z",
+        "updated_at": "2024-03-28T19:47:22.871Z",
+        "price": "25000.00",
+        "customer": null
+    }
+},
+{
+    "model": "freelance.order",
+    "pk": 9,
+    "fields": {
+        "order_type": "development",
+        "title": "Копия сайта",
+        "description": "Здравствуйте! Нужна копия mirtex23.ru\r\nЭто мой сайт, я его написал вручную, очень давно, с помощью html + php.\r\nНужна более современная страница с доработками на другой товар, с онлайн калькулятором.\r\nИсходники могу скинуть",
+        "created_at": "2024-03-28T21:49:42.716Z",
+        "updated_at": "2024-03-28T21:49:42.716Z",
+        "price": "6000.00",
+        "customer": 2
+    }
+},
+{
+    "model": "freelance.order",
+    "pk": 10,
+    "fields": {
+        "order_type": "development",
+        "title": "Нужно подключить платёжную систему Продамус",
+        "description": "Нужно подключить платёжную систему Продамус для платежей.\r\nКод самописный.\r\nhttps://neearby.com\r\nBackend разработчик, Node.JS + Express связка (разработка API). Опыт работы с mysql также имеется.\r\nНа ноде также разрабатывал VK + TG ботов. Также администрирую сервера (полностью с чистого запуска линукса до полного продакшена)",
+        "created_at": "2024-03-28T21:50:28.258Z",
+        "updated_at": "2024-03-28T21:57:13.130Z",
+        "price": "25000.00",
+        "customer": 2
+    }
+}
+]

@@ -23,8 +23,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 class OrderRequestAdmin(admin.ModelAdmin):
-    list_display = ("order", "executor", "about_executor", "created_at", "status")
-
+    list_display = ("order", "executor", "status")
 
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Executor, ExecutorAdmin)

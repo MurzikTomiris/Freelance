@@ -1,0 +1,15 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}Список услуг{% endblock %}
+
+{% block content %}
+<h1>Список Услуг</h1>
+<div class="services">
+    {% for rating in ratings.all %}
+    <div class="service">
+        <h2><a href="{% url 'ratings:rating_update' rating.pk %}">{{ rating.order }}</a></h2>
+        <p>{{ rating.testimonial }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

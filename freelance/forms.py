@@ -1,15 +1,7 @@
 from django import forms
-from .models import (Order,
-                     UserProfile,
-                     OrderRequest
-                    )
 from django.contrib.auth.forms import UserCreationForm
-
-
-class OrderForm(forms.ModelForm):
-    class Meta:
-        model = Order
-        fields = ["order_type", "title", "description", "price"]
+from django.contrib.auth.models import User
+from .models import UserProfile, Customer, Executor, Order, OrderRequest
 
 
 class UserRegistrationForm(UserCreationForm):
@@ -104,6 +96,28 @@ class UserRegistrationForm(UserCreationForm):
         user_profile.user.last_name = self.cleaned_data["last_name"]
         user_profile.user.save()
         return user
+
+
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ["order_type", "title", "description", "price"]
+
+    def clean(self):
+        cleaned_data = super().clean()
+        return cleaned_data
+
+    def save(self, commit=True):
+        order = super().save(commit=False)
+        if commit:
+            order.save()
+        return order
+
+    def delete(self, commit=True):
+        order = super().save(commit=False)
+        if commit:
+            order.delete()
+        return order
 
 
 class OrderRequestForm(forms.ModelForm):
